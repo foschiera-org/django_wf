@@ -143,8 +143,8 @@ if CLOUDINARY_ACCESS_KEY_ID:
     # MEDIA_URL = '/media/'  # or any prefix you choose
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-# configurações da aula:
 '''
+# configurações da aula:
 AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400', }
 AWS_PRELOAD_METADATA = True
 AWS_QUERYSTRING_AUTH = True
