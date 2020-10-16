@@ -129,19 +129,19 @@ CLOUDINARY_ACCESS_KEY_ID = config('API_KEY')
 
 # Storage configuration in
 if CLOUDINARY_ACCESS_KEY_ID:
-    CLOUDINARY_STORAGE = {
+    CLOUDINARY_STORAGE = {    # pragma: no cover
         'CLOUD_NAME': config('CLOUD_NAME'),
         'API_KEY': config('API_KEY'),
         'API_SECRET': config('API_SECRET')
     }
     # static assets
     # STATIC_URL = '/static/'
-    STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-    ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+    STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'  # pragma: no cover
+    ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'  # pragma: no cover
 
     # Media assets
     # MEDIA_URL = '/media/'  # or any prefix you choose
-    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'  # pragma: no cover
 
 '''
 # configurações da aula:
