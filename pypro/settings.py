@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'cloudinary_storage',
+    'collectfast',
     'django.contrib.staticfiles',
     'cloudinary',
     'pypro.base',
@@ -127,6 +128,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
 CLOUDINARY_ACCESS_KEY_ID = config('API_KEY')
 
+COLLECTFAST_ENABLED = False
+
 # Storage configuration in
 if CLOUDINARY_ACCESS_KEY_ID:
     CLOUDINARY_STORAGE = {    # pragma: no cover
@@ -142,7 +145,7 @@ if CLOUDINARY_ACCESS_KEY_ID:
     # Media assets
     # MEDIA_URL = '/media/'  # or any prefix you choose
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'  # pragma: no cover
-
+    COLLECTFAST_ENABLED = True
 '''
 # configurações da aula:
 AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400', }
