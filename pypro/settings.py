@@ -30,6 +30,7 @@ DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
+AUTH_USER_MODEL = 'base.User'
 # Application definition
 
 INSTALLED_APPS = [
@@ -132,26 +133,15 @@ COLLECTFAST_ENABLED = False
 
 # Storage configuration in
 if CLOUDINARY_ACCESS_KEY_ID:
-    CLOUDINARY_STORAGE = {    # pragma: no cover
+    CLOUDINARY_STORAGE = {  # pragma: no cover
         'CLOUD_NAME': config('CLOUD_NAME'),
         'API_KEY': config('API_KEY'),
         'API_SECRET': config('API_SECRET')
     }
     # static assets
-    # STATIC_URL = '/static/'
     STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'  # pragma: no cover
     ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'  # pragma: no cover
 
     # Media assets
-    # MEDIA_URL = '/media/'  # or any prefix you choose
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'  # pragma: no cover
     COLLECTFAST_ENABLED = True
-'''
-# configurações da aula:
-AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400', }
-AWS_PRELOAD_METADATA = True
-AWS_QUERYSTRING_AUTH = True
-AWS_S3_CUSTOM_DOMAIN = None
-COLLECTFAST_ENABLED = True
-AWS_DEFAULT_ACL = 'private'
-'''
